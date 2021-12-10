@@ -1,0 +1,24 @@
+.color {
+    color: rgb(255, 94, 0);
+}
+
+.blacky {
+    background-color: black;
+}
+
+tr, td  {
+    width: 30px;
+    height: 30px;
+}
+
+.even {
+background-color: aquamarine;
+}
+
+.odd {
+background-color:darkcyan;
+}
+
+.message {
+    position: fixed;
+}
