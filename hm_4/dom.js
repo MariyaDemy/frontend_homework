@@ -47,8 +47,12 @@ for (let i = 0; i < names.length; i++) {
     }
 }
 
-// assignment 3
-
+// assignment 3 Количество сообщений на странице не может быть больше 3-х. Если на странице 3 сообщения и
+// мы вызываем showMessage(), то 1 сообщение необходимо удалить, а 2,3 и 4 должны остаться.
+// Необходимо проверить, есть ли у нас уже на странице сообщение в таких же координатах (такие
+// же и top, и left). Если есть - занять позицию +25px left и right. Если и в этот раз у нас имеется
+// сообщение в данной позиции - повторять процедуру, пока не найдем свободное место.
+let messages = [];
 let showMessage = function (text, background, top, left) {
     let message = document.createElement("div");
     message.classList.add("message");
@@ -56,12 +60,20 @@ let showMessage = function (text, background, top, left) {
     message.style.backgroundColor = background;
     message.style.top = top + "px";
     message.style.left = left + "px";
-
+    document.body.appendChild(message);
+    messages.push(message);
+    console.log(messages);
+    if (messages.length > 3) {
+        messages.shift();
+    }
 
 }
 
-document.body.appendChild(showMessage);
-showMessage("Всем привет", "yellow", 100, 50);
+showMessage("Всем привет", "yellow", 500, 500);
+showMessage("Всем привет", "yellow", 100, 100);
+showMessage("Всем привет", "yellow", 200, 200);
+showMessage("Всем привет", "yellow", 300, 300);
+
 
 
 
