@@ -42,7 +42,7 @@ deleteChars('Hello');
 let floorConverter = (num) => {
     if (num === 13) {
         return 'does not exist';
-}
+    }
     else if (num >= 0 && num < 13) {
         num++;
     }
@@ -110,14 +110,24 @@ console.log(convertType1('my string', 'boolean'));
 // Например, transformArray([“fngp”, ”kgei”, ”fpos”, ”clfw”], 2, 3, “green”) должно
 // вернуть [“fngpgreen”, ”kgeigreen”, ”clfwgreen”, ”fposgreen”]
 
-// let transformArray = (arr, index1, index2, adding) => {
 
-// }
+const transformArray = function (arr, index1, index2, adding) {
 
-// console.log(transformArray([“fngp”, ”kgei”, ”fpos”, ”clfw”], 2, 3, “green”));
+    [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+    for (i = 0; i < arr.length; i++) {
+        arr[i] = arr[i] + adding;
+    }
+    return arr;
+}
+console.log(transformArray(['fngp', 'kgei', 'fpos', 'clfw'], 2, 3, 'green'));
 
 // assignment 8
 
 // Нужно написать функцию, в которую мы передаем число, суммируем цифры
 // данного числа до тех пор, пока не останется одна цифра
-// digitalRoot
+const digitalRoot = function (number) {
+    let arr = number.toString().split('');
+    let result = arr.reduce((sum, item) => +item + sum, 0);
+    return result > 9 ? digitalRoot(result) : result;
+}
+console.log(digitalRoot(737));
