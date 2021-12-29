@@ -47,7 +47,11 @@ for (let i = 0; i < names.length; i++) {
     }
 }
 
-// assignment 3 Количество сообщений на странице не может быть больше 3-х. Если на странице 3 сообщения и
+// assignment 3 
+// Напишите функцию showMessage, которая будет вставлять на страницу div с классом “message” на
+// странице с указанными аргументами: текст сообщения, цвет фона сообщения, положение от
+// верхнего края страницы (css свойство top) и положение от левого края страницы (css свойство left)
+// Количество сообщений на странице не может быть больше 3-х. Если на странице 3 сообщения и
 // мы вызываем showMessage(), то 1 сообщение необходимо удалить, а 2,3 и 4 должны остаться.
 // Необходимо проверить, есть ли у нас уже на странице сообщение в таких же координатах (такие
 // же и top, и left). Если есть - занять позицию +25px left и right. Если и в этот раз у нас имеется
@@ -63,17 +67,49 @@ let showMessage = function (text, background, top, left) {
     document.body.appendChild(message);
     messages.push(message);
     console.log(messages);
+
     if (messages.length > 3) {
-        messages.shift();
+        let last = messages.shift();
+        last.remove()
     }
 
 }
 
-showMessage("Всем привет", "yellow", 500, 500);
-showMessage("Всем привет", "yellow", 100, 100);
-showMessage("Всем привет", "yellow", 200, 200);
-showMessage("Всем привет", "yellow", 300, 300);
+showMessage("Всем ку1", "yellow", 500, 500);
+showMessage("Всем привет2", "yellow", 100, 100);
+showMessage("Всем привет3", "blue", 100, 100);
+showMessage("Всем привет4", "yellow", 300, 300);
 
 
+// assignment 4
+// Динамическое создание списка
+// Запрашивайте число у пользователя с помощью prompt.
+// Создавайте элемент <li> и добавляйте его к <ul>.
+// Каждый следующий элемент <li> списка должен должен иметь значение суммы всех предыдущих элементов +
+// введенного значения
+// Процесс прерывается, когда пользователь нажимает Esc, вводит пустую строку или не числовое значение
 
 
+const createList = function () {
+   
+    let list = document.createElement("ul");
+    document.body.appendChild(list);
+    let arr = [];
+    
+    for (i = 0; true; i++) {
+        
+        arr[i] = prompt("Enter any number");
+
+        if (arr[i] === '' || arr[i] === null || isNaN(arr[i])) {
+            break;
+        }
+        else {
+            let result = arr.reduce((sum,item) => +sum + +item);
+            let li = document.createElement("li");
+            li.textContent = result;
+            list.append(li);
+        }
+    }
+}
+
+createList();
