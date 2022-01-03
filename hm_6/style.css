@@ -1,0 +1,18 @@
+.color {
+    color: red;
+}
+
+.blacky {
+    background-color: black;
+}
+
+tr,
+td {
+    width: 30px;
+    height: 30px;
+}
+
+.colorful {
+    background-color: aquamarine;
+    height: 1700px;
+}
