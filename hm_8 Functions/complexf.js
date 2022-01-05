@@ -64,5 +64,44 @@ let showMessage = function () {
 document.querySelector("button").addEventListener("click", showMessage)
 
 
+// FUNC-GENERATOR
+
+
+function* fibi() {
+  yield lVal = 0;
+  yield cVal = 1;
+  while (true) {
+    [lVal, cVal] = [cVal, lVal + cVal];
+        yield lVal;
+  }
+}
     
+let seq = fibi();
+console.log(seq);
+console.log(seq.next().value);
+console.log(seq.next().value);
+console.log(seq.next().value);
+console.log(seq.next().value);
+console.log(seq.next().value);
+console.log(seq.next().value);
+console.log(seq.next());
+
+
+// Создать генератор, который возвращает на каждый вызов четное число
+// из промежутка, переданного в аргументы генератора: generator(from, to)
+
+function* generateEvenNums(from, to) {
+    for (let i = from; i<=to;i++) {
+        if (i % 2 === 0) {
+            yield i;
+        }
+    }
+}
+
+let sequence = generateEvenNums(0,20);
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+console.log(sequence.next().value); // 6
+
 
