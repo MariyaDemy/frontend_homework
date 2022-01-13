@@ -23,13 +23,27 @@ class Person {
         this.name = name;
         this.age = age;
     }
-    getInfo() {
+    set name(value){
+        this.__name = value;
+    }
+    get name(){
+        return this.__name;
+    }
+    set age(value){
+        this.__age = value;
+    }
+    get age(){
+        return this.__age;
+    }
+
+    get info() {
         return `${this.name}'s age is ${this.age}`
     }
 }
 
 let person = new Person('Mariya', 21);
-console.log(person.getInfo());
+console.log(person.info);
+
 
 // assignment 3
 
@@ -136,3 +150,28 @@ class Ball {
 let ball = new Ball();
 let Ball2 = new Ball("superBall");
 console.log(ball.type);
+
+
+
+// figures
+
+class Square {
+    constructor(length) {
+        this.length = length; 
+    }
+    set length(value){
+        this.__length=value;
+    }
+    get length(){
+        return this.__length;
+    }
+    get square(){
+        return this.length**2;
+    }
+    get perimeter(){
+        return this.length*4;
+    }
+}
+
+let newFigure = new Square(10);
+console.log(`${newFigure.length} ${newFigure.perimeter} ${newFigure.square}`);
