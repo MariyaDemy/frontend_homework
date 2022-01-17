@@ -9,8 +9,11 @@ for (item of arr) {
 // Создать из них массив и к каждому элементу массива добавить его порядковый номер.
 // Вывести полученный массив
 
-console.log(Array.from(document.getElementsByTagName('li')).map((el,number) => {
-    return number + 1 + ") " + el.innerText;}));
+console.log(
+    Array.from(document.getElementsByTagName('li'))
+        .map((el,number) => {
+            return  number + 1 + ") " + el.innerText;
+}));
 
 // assignment 3 Напишите функцию sumPrices(prices), которая возвращает сумму всех цен
 //  с помощью метода Object.values
